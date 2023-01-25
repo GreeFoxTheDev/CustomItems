@@ -47,6 +47,20 @@ public class HoneyBoots extends JavaPlugin {
         sr.setIngredient('X', new RecipeChoice.ExactChoice(compressedSugar));
         Bukkit.getServer().addRecipe(sr);
     }
+    public static ItemStack compressedSugar2;
+    private static void createCompressedSugar2() {
+        ItemStack item = new ItemStack(Material.SUGAR);
+        ItemMeta im = item.getItemMeta();
+        im.setDisplayName("§f§lCompressed Sugar");
+        im.addEnchant(Enchantment.LUCK, 1, true);
+        im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        item.setItemMeta(im);
+        compressedSugar2 = item;
+        ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("compressed_sugar2"), item);
+        sr.shape("XXX", "XXX", "XXX");
+        sr.setIngredient('X', new RecipeChoice.ExactChoice(compressedSugar1));
+        Bukkit.getServer().addRecipe(sr);
+    }
     public static ItemStack compressedHoney;
     private static void createCompressedHoney() {
         ItemStack item = new ItemStack(Material.HONEYCOMB);
@@ -61,7 +75,7 @@ public class HoneyBoots extends JavaPlugin {
     }
     public static ItemStack compressedHoney1;
     private static void createCompressedHoney1() {
-        ItemStack item = new ItemStack(Material.SUGAR);
+        ItemStack item = new ItemStack(Material.HONEYCOMB);
         ItemMeta im = item.getItemMeta();
         im.setDisplayName("§f§lMore Compressed Honeycomb");
         im.addEnchant(Enchantment.LUCK, 1, true);
@@ -75,30 +89,16 @@ public class HoneyBoots extends JavaPlugin {
     }
     public static ItemStack compressedHoney2;
     private static void createCompressedHoney2() {
-        ItemStack item = new ItemStack(Material.SUGAR);
+        ItemStack item = new ItemStack(Material.HONEYCOMB);
         ItemMeta im = item.getItemMeta();
         im.setDisplayName("§6§lCompressed Honeycomb");
         im.addEnchant(Enchantment.LUCK, 1, true);
         im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(im);
-        compressedHoney1 = item;
+        compressedHoney2 = item;
         ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("compressed_honey2"), item);
         sr.shape("XXX", "XXX", "XXX");
         sr.setIngredient('X', new RecipeChoice.ExactChoice(compressedHoney1));
-        Bukkit.getServer().addRecipe(sr);
-    }
-    public static ItemStack compressedSugar2;
-    private static void createCompressedSugar2() {
-        ItemStack item = new ItemStack(Material.SUGAR);
-        ItemMeta im = item.getItemMeta();
-        im.setDisplayName("§f§lCompressed Sugar");
-        im.addEnchant(Enchantment.LUCK, 1, true);
-        im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        item.setItemMeta(im);
-        compressedSugar2 = item;
-        ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("compressed_sugar2"), item);
-        sr.shape("XXX", "XXX", "XXX");
-        sr.setIngredient('X', new RecipeChoice.ExactChoice(compressedSugar1));
         Bukkit.getServer().addRecipe(sr);
     }
     public static ItemStack honeyBoots;
@@ -118,12 +118,10 @@ public class HoneyBoots extends JavaPlugin {
         item.setItemMeta(im);
         honeyBoots = item;
         ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("honey_boots"), item);
-        sr.shape("XXX", "XXX", "XXX");
-        sr.setIngredient('X', Material.SUGAR);
-        //sr.setIngredient('X', new RecipeChoice.ExactChoice(compressedSugar2));
-        //sr.setIngredient('Y', Material.GOLDEN_BOOTS);
-        //sr.setIngredient('Z', new RecipeChoice.ExactChoice(compressedHoney2));
-        //sr.setIngredient('A', Material.SUGAR);
+        sr.shape("XZX", "ZYZ", "XZX");
+        sr.setIngredient('X', new RecipeChoice.ExactChoice(compressedSugar2));
+        sr.setIngredient('Y', Material.GOLD_INGOT);
+        sr.setIngredient('Z', new RecipeChoice.ExactChoice(compressedHoney2));
         Bukkit.getServer().addRecipe(sr);
     }
 }
