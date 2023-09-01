@@ -1,0 +1,6 @@
+name: CustomItems
+version: '1.2'
+main: custom.items.items.custom.Items.CustomItems
+api-version: 1.19
+authors: [ GreeFox ]
+description: Adds items for people in Axeron!
