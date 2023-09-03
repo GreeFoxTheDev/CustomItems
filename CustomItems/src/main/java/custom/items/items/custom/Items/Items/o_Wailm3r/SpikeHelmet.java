@@ -1,7 +1,6 @@
-package custom.items.items.custom.Items.o_Wailm3r;
+package custom.items.items.custom.Items.Items.o_Wailm3r;
 
 import custom.items.items.custom.Items.CustomItems;
-import custom.items.items.custom.Items.Sorgen_08.Melons;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -33,6 +32,7 @@ public class SpikeHelmet extends JavaPlugin {
         createCompressedCactus1();
         createCompressedCactus2();
         createCompressedCactus3();
+        createCactusBomber();
         createCactusHelmet();
     }
 
@@ -150,6 +150,28 @@ public class SpikeHelmet extends JavaPlugin {
         sr.setIngredient('Y', Material.NETHERITE_INGOT);
         sr.setIngredient('Z', Material.MUSIC_DISC_OTHERSIDE);
         sr.setIngredient('A', Material.MUSIC_DISC_CAT);
+        try {
+            Bukkit.addRecipe(sr);
+        } catch (IllegalStateException ignored) {
+        }
+    }
+    public static ItemStack cactusBomber;
+    private static void createCactusBomber() {
+        ItemStack item = new ItemStack(Material.CACTUS);
+        ItemMeta im = item.getItemMeta();
+        im.setDisplayName(ChatColor.DARK_GREEN + "§lSpike Bomber");
+        im.setLocalizedName("cactus_bomber");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GREEN + "BOOM!!!");
+        lore.add("");
+        im.setLore(lore);
+        im.addEnchant(Enchantment.THORNS, 5, true);
+        im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        item.setItemMeta(im);
+        cactusBomber = item;
+        ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("cactus_bomber"), item);
+        sr.shape("XXX", "XXX", "XXX");
+        sr.setIngredient('X', new RecipeChoice.ExactChoice(compressedCactus3));
         try {
             Bukkit.addRecipe(sr);
         } catch (IllegalStateException ignored) {

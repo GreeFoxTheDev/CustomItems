@@ -1,4 +1,4 @@
-package custom.items.items.custom.Items.o_Wailm3r;
+package custom.items.items.custom.Items.Items.o_Wailm3r;
 
 import custom.items.items.custom.Items.CustomItems;
 import org.bukkit.Color;
@@ -40,6 +40,7 @@ public class SpikeHelmetEvent implements Listener {
         Action action = event.getAction();
         if (item != null && item.hasItemMeta() && item.getItemMeta().hasLocalizedName() && item.getItemMeta().getLocalizedName().equals("spike_helmet")) {
             if (action == Action.RIGHT_CLICK_BLOCK) {
+                event.getPlayer().sendMessage("test2");
                 event.setCancelled(true);
             }
         }

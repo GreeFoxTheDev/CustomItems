@@ -4,3 +4,7 @@ main: custom.items.items.custom.Items.CustomItems
 api-version: 1.19
 authors: [ GreeFox ]
 description: Adds items for people in Axeron!
+commands:
+  givecustomitem:
+    description: "Gives player a custom item!"
+    usage: /<command> <folder> <item> <player>

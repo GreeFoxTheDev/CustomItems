@@ -1,4 +1,4 @@
-package custom.items.items.custom.Items.Sorgen_08;
+package custom.items.items.custom.Items.Items.Sorgen_08;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

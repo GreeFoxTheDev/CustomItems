@@ -1,4 +1,4 @@
-package custom.items.items.custom.Items.GreeFox;
+package custom.items.items.custom.Items.Items.GreeFox;
 
 import custom.items.items.custom.Items.CustomItems;
 import org.bukkit.Location;

@@ -1,4 +1,4 @@
-package custom.items.items.custom.Items.Sorgen_08;
+package custom.items.items.custom.Items.Items.Sorgen_08;
 
 import custom.items.items.custom.Items.CustomItems;
 import org.bukkit.entity.Player;

@@ -1,4 +1,4 @@
-package custom.items.items.custom.Items.Grufflyer;
+package custom.items.items.custom.Items.Items.Grufflyer;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

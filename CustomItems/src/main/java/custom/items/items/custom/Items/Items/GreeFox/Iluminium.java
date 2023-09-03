@@ -1,4 +1,4 @@
-package custom.items.items.custom.Items.GreeFox;
+package custom.items.items.custom.Items.Items.GreeFox;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

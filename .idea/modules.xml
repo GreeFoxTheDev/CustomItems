@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CustomItems.iml" filepath="$PROJECT_DIR$/.idea/CustomItems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CustomItems/items.custom.iml" filepath="$PROJECT_DIR$/CustomItems/items.custom.iml" />
     </modules>
   </component>
 </project>
