@@ -31,8 +31,9 @@ public class SpikeBomberEvent implements Listener {
                 FallingBlock bomb = player.getLocation().getWorld().spawnFallingBlock(player.getLocation(), Material.CACTUS.createBlockData());
                 Location location = player.getLocation().clone(); // clone the location so we can modify it without issues
                 Location hiroshima = null;
-                for (int y = location.getBlockY(); y > 0; y--) { // get current Y coordinate, go down until we hit bedrock (0)
-                    if (location.subtract(0, 1, 0).getBlock().getType() == Material.AIR) continue; // if the block is air, go to next
+                for (int y = location.getBlockY(); y > -64; y--) { // get current Y coordinate, go down until we hit bedrock (0)
+                    if (location.subtract(0, 1, 0).getBlock().getType() == Material.AIR)
+                        continue; // if the block is air, go to next
                     hiroshima = location;
                     break; // stop the loop
                 }
