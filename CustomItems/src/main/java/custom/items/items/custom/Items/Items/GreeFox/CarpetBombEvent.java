@@ -56,20 +56,20 @@ public class CarpetBombEvent implements Listener {
                 Location hiroshimaClone6 = hiroshima.clone();
                 Location hiroshimaClone7 = hiroshima.clone();
 
-                Location small_0 = hiroshimaClone.add(100, 0, 0);
-                Location small_1 = hiroshimaClone1.add(0, 0, -100);
-                Location small_2 = hiroshimaClone2.add(-100, 0, 0);
-                Location small_3 = hiroshimaClone3.add(-0, 0, -100);
+                Location small_0 = hiroshimaClone.add(20, 0, 20);
+                Location small_1 = hiroshimaClone1.add(20, 0, -20);
+                Location small_2 = hiroshimaClone2.add(-20, 0, 20);
+                Location small_3 = hiroshimaClone3.add(-20, 0, -20);
 
                 /* Location small_4 = hiroshimaClone4.add(60, 0, 60);
                 Location small_5 = hiroshimaClone5.add(60, 0, -60);
                 Location small_6 = hiroshimaClone6.add(-60, 0, 60);
                 Location small_7 = hiroshimaClone7.add(-60, 0, -60); */
 
-                Location small_4 = hiroshimaClone4.add(100, 0, 100);
-                Location small_5 = hiroshimaClone5.add(100, 0, -100);
-                Location small_6 = hiroshimaClone6.add(-100, 0, 100);
-                Location small_7 = hiroshimaClone7.add(-100, 0, -100);
+                Location small_4 = hiroshimaClone4.add(30, 0, 30);
+                Location small_5 = hiroshimaClone5.add(30, 0, -30);
+                Location small_6 = hiroshimaClone6.add(-30, 0, 30);
+                Location small_7 = hiroshimaClone7.add(-30, 0, -30);
 
                 double dist = player.getLocation().distance(hiroshima);
                 double time = dist / 12.5;

@@ -1,6 +1,7 @@
 package custom.items.items.custom.Items.Commands;
 
 import custom.items.items.custom.Items.CustomItems;
+import custom.items.items.custom.Items.Items.GreeFox.PumpkinCarpetBomb;
 import custom.items.items.custom.Items.Items.Grufflyer.HoneyBoots;
 import custom.items.items.custom.Items.Items.Sorgen_08.Melons;
 import custom.items.items.custom.Items.Items.o_Wailm3r.SpikeHelmet;
@@ -17,10 +18,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.*;
 
 public class Give implements CommandExecutor, TabCompleter {
-    private static final String[] ARGS = {"GruffItems", "SorItems", "WailItems"};
+    private static final String[] ARGS = {"GruffItems", "SorItems", "WailItems", "GreeItems"};
     private static final String[] SORGEN_ARGS = {"compressed_melon", "compressed_melon_1", "compressed_melon_2", "final_slice", "final_melon", "melon_ax", "compressed_cactus", "compressed_cactus_1", "compressed_cactus_2", "compressed_cactus_3", "spike_helmet"};
     private static final String[] WAIL_ARGS = {"compressed_cactus", "compressed_cactus_1", "compressed_cactus_2", "compressed_cactus_3", "spike_bomb", "spike_helmet"};
     private static final String[] GRUFF_ARGS = {"compressed_sugar", "compressed_sugar_1", "compressed_sugar_2", "compressed_honey", "compressed_honey_1", "compressed_honey_2", "honey_boots" };
+    private static final String[] GREE_ARGS ={"compressed_pumpkin", "compressed_pumpkin_1", "compressed_pumpkin_2", "compressed_pumpkin_3", "compressed_pumpkin_4"};
     CustomItems plugin;
 
     public Give(CustomItems plugin) {
@@ -112,6 +114,23 @@ public class Give implements CommandExecutor, TabCompleter {
                                 ((Player) closestEntity).getInventory().addItem(HoneyBoots.honeyBoots);
                             }
                         }
+                        if (args[0].equalsIgnoreCase("GreeItems")) {
+                            if (args[1].equalsIgnoreCase("compressed_pumpkin")){
+                                ((Player) closestEntity).getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin);
+                            }
+                            if (args[1].equalsIgnoreCase("compressed_pumpkin_1")){
+                                ((Player) closestEntity).getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin1);
+                            }
+                            if (args[1].equalsIgnoreCase("compressed_pumpkin_2")){
+                                ((Player) closestEntity).getInventory().addItem((PumpkinCarpetBomb.compressedPumpkin2));
+                            }
+                            if (args[1].equalsIgnoreCase("compressed_pumpkin_3")){
+                                ((Player) closestEntity).getInventory().addItem((PumpkinCarpetBomb.compressedPumpkin3));
+                            }
+                            if (args[1].equalsIgnoreCase("compressed_pumpkin_4")){
+                                ((Player) closestEntity).getInventory().addItem((PumpkinCarpetBomb.compressedPumpkin4));
+                            }
+                        }
                     }
                 } else if (sender instanceof Player) {
                     Player player = (Player) sender;
@@ -181,6 +200,23 @@ public class Give implements CommandExecutor, TabCompleter {
                             }
                             if (args[1].equalsIgnoreCase("honey_boots")){
                                 player.getInventory().addItem(HoneyBoots.honeyBoots);
+                            }
+                        }
+                        if (args[0].equalsIgnoreCase("GreeItems")) {
+                            if (args[1].equalsIgnoreCase("compressed_pumpkin")){
+                                player.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin);
+                            }
+                            if (args[1].equalsIgnoreCase("compressed_pumpkin_1")){
+                                player.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin1);
+                            }
+                            if (args[1].equalsIgnoreCase("compressed_pumpkin_2")){
+                                player.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin2);
+                            }
+                            if (args[1].equalsIgnoreCase("compressed_pumpkin_3")){
+                                player.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin3);
+                            }
+                            if (args[1].equalsIgnoreCase("compressed_pumpkin_4")){
+                                player.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin4);
                             }
                         }
                     } else sender.sendMessage(ChatColor.RED + "You don't have permission to do that!");
@@ -260,6 +296,23 @@ public class Give implements CommandExecutor, TabCompleter {
                                         chosenPlayer.getInventory().addItem(HoneyBoots.honeyBoots);
                                     }
                                 }
+                                if (args[0].equalsIgnoreCase("GreeItems")) {
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin")){
+                                        chosenPlayer.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_1")){
+                                        chosenPlayer.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin1);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_2")){
+                                        chosenPlayer.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin2);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_3")){
+                                        chosenPlayer.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin3);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_4")){
+                                        chosenPlayer.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin4);
+                                    }
+                                }
                             } else if (chosenPlayer.getInventory().firstEmpty() == -1) {
                                 if (args[0].equalsIgnoreCase("SorItems")) {
                                     if (args[1].equalsIgnoreCase("final_melon")){
@@ -325,6 +378,23 @@ public class Give implements CommandExecutor, TabCompleter {
                                     }
                                     if (args[1].equalsIgnoreCase("honey_boots")){
                                         chosenPlayer.getWorld().dropItemNaturally(chosenPlayer.getLocation(), HoneyBoots.honeyBoots);
+                                    }
+                                }
+                                if (args[0].equalsIgnoreCase("GreeItems")) {
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin")){
+                                        chosenPlayer.getWorld().dropItemNaturally(chosenPlayer.getLocation(), PumpkinCarpetBomb.compressedPumpkin);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_1")){
+                                        chosenPlayer.getWorld().dropItemNaturally(chosenPlayer.getLocation(), PumpkinCarpetBomb.compressedPumpkin1);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_2")){
+                                        chosenPlayer.getWorld().dropItemNaturally(chosenPlayer.getLocation(), PumpkinCarpetBomb.compressedPumpkin2);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_3")){
+                                        chosenPlayer.getWorld().dropItemNaturally(chosenPlayer.getLocation(), PumpkinCarpetBomb.compressedPumpkin3);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_4")){
+                                        chosenPlayer.getWorld().dropItemNaturally(chosenPlayer.getLocation(), PumpkinCarpetBomb.compressedPumpkin4);
                                     }
                                 }
                             }
@@ -406,6 +476,23 @@ public class Give implements CommandExecutor, TabCompleter {
                                         allOnlinePlayers.getInventory().addItem(HoneyBoots.honeyBoots);
                                     }
                                 }
+                                if (args[0].equalsIgnoreCase("GreeItems")) {
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin")){
+                                        allOnlinePlayers.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_1")){
+                                        allOnlinePlayers.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin1);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_2")){
+                                        allOnlinePlayers.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin2);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_3")){
+                                        allOnlinePlayers.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin3);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_4")){
+                                        allOnlinePlayers.getInventory().addItem(PumpkinCarpetBomb.compressedPumpkin4);
+                                    }
+                                }
                             } else if (allOnlinePlayers.getInventory().firstEmpty() == -1) {
                                 if (args[0].equalsIgnoreCase("SorItems")) {
                                     if (args[1].equalsIgnoreCase("final_melon")){
@@ -473,6 +560,23 @@ public class Give implements CommandExecutor, TabCompleter {
                                         allOnlinePlayers.getWorld().dropItemNaturally(allOnlinePlayers.getLocation(), HoneyBoots.honeyBoots);
                                     }
                                 }
+                                if (args[0].equalsIgnoreCase("GreeItems")) {
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin")){
+                                        allOnlinePlayers.getWorld().dropItemNaturally(chosenPlayer.getLocation(), PumpkinCarpetBomb.compressedPumpkin);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_1")){
+                                        allOnlinePlayers.getWorld().dropItemNaturally(chosenPlayer.getLocation(), PumpkinCarpetBomb.compressedPumpkin1);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_2")){
+                                        allOnlinePlayers.getWorld().dropItemNaturally(chosenPlayer.getLocation(), PumpkinCarpetBomb.compressedPumpkin2);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_3")){
+                                        allOnlinePlayers.getWorld().dropItemNaturally(chosenPlayer.getLocation(), PumpkinCarpetBomb.compressedPumpkin3);
+                                    }
+                                    if (args[1].equalsIgnoreCase("compressed_pumpkin_4")){
+                                        allOnlinePlayers.getWorld().dropItemNaturally(chosenPlayer.getLocation(), PumpkinCarpetBomb.compressedPumpkin4);
+                                    }
+                                }
                             }
                         }
                     } else sender.sendMessage(ChatColor.RED + "You don't have permission to do that!");
@@ -513,6 +617,14 @@ public class Give implements CommandExecutor, TabCompleter {
             Collections.sort(WailItems);
             if (args.length == 2) {
                 return WailItems;
+            }
+        }
+        if (args[0].equals("GreeItems")) {
+            final List<String> GreeItems = new ArrayList<>();
+            StringUtil.copyPartialMatches(args[1], Arrays.asList(GREE_ARGS), GreeItems);
+            Collections.sort(GreeItems);
+            if (args.length == 2) {
+                return GreeItems;
             }
         }
 
