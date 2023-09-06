@@ -1,8 +1,10 @@
 package custom.items.items.custom.Items;
 
 import custom.items.items.custom.Items.Commands.Give;
+import custom.items.items.custom.Items.Items.GreeFox.CarpetBombEvent;
 import custom.items.items.custom.Items.Items.GreeFox.Iluminium;
 import custom.items.items.custom.Items.Items.GreeFox.IluminiumEvent;
+import custom.items.items.custom.Items.Items.GreeFox.PumpkinCarpetBomb;
 import custom.items.items.custom.Items.Items.Grufflyer.HoneyBoots;
 import custom.items.items.custom.Items.Items.Grufflyer.HoneyBootsEvent;
 import custom.items.items.custom.Items.Items.Sorgen_08.FinalMelonEvent;
@@ -36,13 +38,15 @@ public final class CustomItems extends JavaPlugin {
         SpikeHelmet.init();
         Melons.init();
         HoneyBoots.init();
-        Iluminium.init();
+        // Iluminium.init();
+        PumpkinCarpetBomb.init();
         getServer().getPluginManager().registerEvents(new SpikeHelmetEvent(this), this);
-        getServer().getPluginManager().registerEvents(new IluminiumEvent(this), this);
+        // getServer().getPluginManager().registerEvents(new IluminiumEvent(this), this);
         getServer().getPluginManager().registerEvents(new FinalMelonEvent(this), this);
         getServer().getPluginManager().registerEvents(new MelonSliceEvent(this), this);
         getServer().getPluginManager().registerEvents(new HoneyBootsEvent(this), this);
         getServer().getPluginManager().registerEvents(new SpikeBomberEvent(this), this);
+        getServer().getPluginManager().registerEvents(new CarpetBombEvent(this), this);
         SpikeHelmet.init();
         getServer().getPluginManager().registerEvents(new SpikeHelmetEvent(this), this);
         Objects.requireNonNull(this.getCommand("givecustomitem")).setExecutor(new Give(this));

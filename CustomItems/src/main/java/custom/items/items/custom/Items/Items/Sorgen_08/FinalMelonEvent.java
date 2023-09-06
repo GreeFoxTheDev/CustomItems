@@ -23,7 +23,7 @@ public class FinalMelonEvent implements Listener {
         Player player = event.getPlayer();
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK || event.getAction() == Action.RIGHT_CLICK_AIR) {
             if (item != null && item.hasItemMeta() && item.getItemMeta().hasLocalizedName() && item.getItemMeta().getLocalizedName().equals("melon_final")) {
-                    player.getWorld().createExplosion(player.getLocation(), 27f);
+                    player.getWorld().createExplosion(player.getLocation(), 70f);
                     player.sendMessage("That's a lot of damage!");
                     if (player.getInventory().contains(Melons.compressedMelon3)) {
                         player.getInventory().remove(Melons.compressedMelon3);

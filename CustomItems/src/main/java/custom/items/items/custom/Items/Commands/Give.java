@@ -19,7 +19,7 @@ import java.util.*;
 public class Give implements CommandExecutor, TabCompleter {
     private static final String[] ARGS = {"GruffItems", "SorItems", "WailItems"};
     private static final String[] SORGEN_ARGS = {"compressed_melon", "compressed_melon_1", "compressed_melon_2", "final_slice", "final_melon", "melon_ax", "compressed_cactus", "compressed_cactus_1", "compressed_cactus_2", "compressed_cactus_3", "spike_helmet"};
-    private static final String[] WAIL_ARGS = {"compressed_cactus", "compressed_cactus_1", "compressed_cactus_2", "compressed_cactus_3", "spike_helmet"};
+    private static final String[] WAIL_ARGS = {"compressed_cactus", "compressed_cactus_1", "compressed_cactus_2", "compressed_cactus_3", "spike_bomb", "spike_helmet"};
     private static final String[] GRUFF_ARGS = {"compressed_sugar", "compressed_sugar_1", "compressed_sugar_2", "compressed_honey", "compressed_honey_1", "compressed_honey_2", "honey_boots" };
     CustomItems plugin;
 
@@ -84,6 +84,9 @@ public class Give implements CommandExecutor, TabCompleter {
                             }
                             if (args[1].equalsIgnoreCase("spike_helmet")){
                                 ((Player) closestEntity).getInventory().addItem(SpikeHelmet.cactusHelmet);
+                            }
+                            if (args[1].equalsIgnoreCase("spike_bomb")){
+                                ((Player) closestEntity).getInventory().addItem(SpikeHelmet.cactusBomber);
                             }
                         }
                         if (args[0].equalsIgnoreCase("GruffItems")) {
@@ -152,6 +155,9 @@ public class Give implements CommandExecutor, TabCompleter {
                             }
                             if (args[1].equalsIgnoreCase("spike_helmet")){
                                 player.getInventory().addItem(SpikeHelmet.cactusHelmet);
+                            }
+                            if (args[1].equalsIgnoreCase("spike_bomb")){
+                                player.getInventory().addItem(SpikeHelmet.cactusBomber);
                             }
                         }
                         if (args[0].equalsIgnoreCase("GruffItems")) {
@@ -227,6 +233,9 @@ public class Give implements CommandExecutor, TabCompleter {
                                     if (args[1].equalsIgnoreCase("spike_helmet")){
                                         chosenPlayer.getInventory().addItem(SpikeHelmet.cactusHelmet);
                                     }
+                                    if (args[1].equalsIgnoreCase("spike_bomb")){
+                                        chosenPlayer.getInventory().addItem(SpikeHelmet.cactusBomber);
+                                    }
                                 }
                                 if (args[0].equalsIgnoreCase("GruffItems")) {
                                     if (args[1].equalsIgnoreCase("compressed_honey")){
@@ -290,6 +299,9 @@ public class Give implements CommandExecutor, TabCompleter {
                                     }
                                     if (args[1].equalsIgnoreCase("spike_helmet")){
                                         chosenPlayer.getWorld().dropItemNaturally(chosenPlayer.getLocation(), SpikeHelmet.cactusHelmet);
+                                    }
+                                    if (args[1].equalsIgnoreCase("spike_bomb")){
+                                        chosenPlayer.getInventory().addItem(SpikeHelmet.cactusBomber);
                                     }
                                 }
                                 if (args[0].equalsIgnoreCase("GruffItems")) {
@@ -367,6 +379,9 @@ public class Give implements CommandExecutor, TabCompleter {
                                     if (args[1].equalsIgnoreCase("spike_helmet")){
                                         allOnlinePlayers.getInventory().addItem(SpikeHelmet.cactusHelmet);
                                     }
+                                    if (args[1].equalsIgnoreCase("spike_bomb")){
+                                        allOnlinePlayers.getInventory().addItem(SpikeHelmet.cactusBomber);
+                                    }
                                 }
                                 if (args[0].equalsIgnoreCase("GruffItems")) {
                                     if (args[1].equalsIgnoreCase("compressed_honey")){
@@ -430,6 +445,9 @@ public class Give implements CommandExecutor, TabCompleter {
                                     }
                                     if (args[1].equalsIgnoreCase("spike_helmet")){
                                         allOnlinePlayers.getWorld().dropItemNaturally(allOnlinePlayers.getLocation(), SpikeHelmet.cactusHelmet);
+                                    }
+                                    if (args[1].equalsIgnoreCase("spike_bomb")){
+                                        allOnlinePlayers.getWorld().dropItemNaturally(allOnlinePlayers.getLocation(), SpikeHelmet.cactusBomber);
                                     }
                                 }
                                 if (args[0].equalsIgnoreCase("GruffItems")) {

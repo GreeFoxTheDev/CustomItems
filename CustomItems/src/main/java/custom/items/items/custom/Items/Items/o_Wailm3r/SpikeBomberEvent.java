@@ -1,9 +1,7 @@
 package custom.items.items.custom.Items.Items.o_Wailm3r;
 
 import custom.items.items.custom.Items.CustomItems;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Particle;
+import org.bukkit.*;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,8 +25,18 @@ public class SpikeBomberEvent implements Listener {
         if (item != null && item.hasItemMeta() && item.getItemMeta().hasLocalizedName() && item.getItemMeta().getLocalizedName().equals("cactus_bomber")) {
             if (action == Action.RIGHT_CLICK_AIR) {
                 Player player = event.getPlayer();
-                player.sendMessage("test1");
+
+                if (player.getGameMode().equals(GameMode.SURVIVAL) || player.getGameMode().equals(GameMode.ADVENTURE)) {
+                    if (item.getAmount() == 1) {
+                        item.setAmount(0);
+                    } else {
+                        item.setAmount(item.getAmount() - 1);
+                    }
+                }
                 FallingBlock bomb = player.getLocation().getWorld().spawnFallingBlock(player.getLocation(), Material.CACTUS.createBlockData());
+                bomb.setGlowing(true);
+                bomb.setCustomName(ChatColor.DARK_GREEN + "§lSpike Bomber");
+                bomb.setCustomNameVisible(true);
                 Location location = player.getLocation().clone(); // clone the location so we can modify it without issues
                 Location hiroshima = null;
                 for (int y = location.getBlockY(); y > -64; y--) { // get current Y coordinate, go down until we hit bedrock (0)
@@ -45,10 +53,11 @@ public class SpikeBomberEvent implements Listener {
                 new BukkitRunnable() {
                     @Override
                     public void run() {
-                        bomb.getWorld().createExplosion(finalHiroshima, 20, true);
-                        bomb.getWorld().spawnParticle(Particle.SMOKE_LARGE, bomb.getLocation(), 50);
-                        bomb.getWorld().spawnParticle(Particle.CAMPFIRE_SIGNAL_SMOKE, bomb.getLocation(), 50);
-                        player.sendMessage("You landed a nuke!");
+                        bomb.getWorld().createExplosion(finalHiroshima, 30f, true);
+                        bomb.getWorld().spawnParticle(Particle.SMOKE_LARGE, bomb.getLocation(), 100);
+                        bomb.getWorld().spawnParticle(Particle.ASH, bomb.getLocation(), 100);
+                        bomb.getWorld().spawnParticle(Particle.CAMPFIRE_SIGNAL_SMOKE, bomb.getLocation(), 150);
+                        player.sendMessage(ChatColor.YELLOW + "You just committed a war crime!");
                         bomb.remove();
                     }
                 }.runTaskLater(CustomItems.getInstance(), timeInTicks);
