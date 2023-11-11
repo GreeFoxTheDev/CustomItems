@@ -32,6 +32,8 @@ public class SpikeHelmet extends JavaPlugin {
         createCompressedCactus1();
         createCompressedCactus2();
         createCompressedCactus3();
+        createDrillBomb();
+        createSurfaceBomb();
         createCactusBomber();
         createCactusHelmet();
     }
@@ -66,8 +68,8 @@ public class SpikeHelmet extends JavaPlugin {
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.GREEN + "You're taking is seriously?");
         lore.add("");
-        lore.add(ChatColor.GREEN + "Usable to craft" + ChatColor.DARK_AQUA + ChatColor.BOLD + "Really");
-        lore.add(ChatColor.GREEN + String.valueOf(ChatColor.DARK_AQUA) + ChatColor.BOLD + " Compressed Cactus");
+        lore.add(ChatColor.GREEN + "Usable to craft " + ChatColor.DARK_AQUA + ChatColor.BOLD + "Really");
+        lore.add(ChatColor.GREEN + String.valueOf(ChatColor.DARK_AQUA) + ChatColor.BOLD + "Compressed Cactus");
         im.setLore(lore);
         im.addEnchant(Enchantment.LUCK, 1, true);
         im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -90,7 +92,7 @@ public class SpikeHelmet extends JavaPlugin {
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.GREEN + "Have a cactus farm?");
         lore.add("");
-        lore.add(ChatColor.GREEN + "Usable to craft" + ChatColor.DARK_GREEN + ChatColor.BOLD + "FINAL");
+        lore.add(ChatColor.GREEN + "Usable to craft " + ChatColor.DARK_GREEN + ChatColor.BOLD + "FINAL");
         lore.add(ChatColor.GREEN + String.valueOf(ChatColor.DARK_GREEN) + ChatColor.BOLD + " CACTUS");
         im.setLore(lore);
         im.addEnchant(Enchantment.LUCK, 1, true);
@@ -150,6 +152,56 @@ public class SpikeHelmet extends JavaPlugin {
         sr.setIngredient('Y', Material.NETHERITE_INGOT);
         sr.setIngredient('Z', Material.MUSIC_DISC_OTHERSIDE);
         sr.setIngredient('A', Material.MUSIC_DISC_CAT);
+        try {
+            Bukkit.addRecipe(sr);
+        } catch (IllegalStateException ignored) {
+        }
+    }
+    public static ItemStack drillBomb;
+
+    private static void createDrillBomb(){
+        ItemStack item = new ItemStack(Material.CACTUS);
+        ItemMeta im = item.getItemMeta();
+        im.setDisplayName(ChatColor.DARK_GREEN + "§lDrill Bomber");
+        im.setLocalizedName("drill_bomber");
+        List<String> lore = new ArrayList<>();
+        lore.add("");
+        lore.add(ChatColor.GREEN + "Creates a chain of");
+        lore.add(ChatColor.GREEN + "explosions going down!");
+        lore.add("");
+        im.setLore(lore);
+        im.addEnchant(Enchantment.THORNS, 5, true);
+        im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        item.setItemMeta(im);
+        drillBomb = item;
+        ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("drill_bomber"), item);
+        sr.shape(" X ", " X ", " X ");
+        sr.setIngredient('X', new RecipeChoice.ExactChoice(compressedCactus3));
+        try {
+            Bukkit.addRecipe(sr);
+        } catch (IllegalStateException ignored) {
+        }
+    }
+    public static ItemStack surfaceBomb;
+
+    private static void createSurfaceBomb(){
+        ItemStack item = new ItemStack(Material.CACTUS);
+        ItemMeta im = item.getItemMeta();
+        im.setDisplayName(ChatColor.DARK_GREEN + "§lSurface Bomber");
+        im.setLocalizedName("surface_bomber");
+        List<String> lore = new ArrayList<>();
+        lore.add("");
+        lore.add(ChatColor.GREEN + "Creates a chain of");
+        lore.add(ChatColor.GREEN + "flat explosions!");
+        lore.add("");
+        im.setLore(lore);
+        im.addEnchant(Enchantment.THORNS, 5, true);
+        im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        item.setItemMeta(im);
+        surfaceBomb = item;
+        ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("surface_bomber"), item);
+        sr.shape("   ", "XXX", "   ");
+        sr.setIngredient('X', new RecipeChoice.ExactChoice(compressedCactus3));
         try {
             Bukkit.addRecipe(sr);
         } catch (IllegalStateException ignored) {
